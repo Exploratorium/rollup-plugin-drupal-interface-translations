@@ -2,7 +2,6 @@ import { readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { describe, expect, test } from '@jest/globals';
 import { rollup } from 'rollup';
 
 import drupalInterfaceTranslations from './index.js';

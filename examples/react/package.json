@@ -10,7 +10,7 @@
     "predev": "mkdir -p js/public/core/misc; npm run fetch:drupal.js; npm run fetch:drupal.init.js; npm run fetch:drupalSettingsLoader.js",
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint .",
     "preview": "vite preview",
     "test": "echo '@TODO: create unit tests'"
   },
@@ -19,14 +19,16 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
+    "@eslint/js": "^9.11.1",
+    "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.3",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.7",
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^9.11.1",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "globals": "^15.9.0",
     "rollup-plugin-drupal-interface-translations": "../..",
-    "vite": "^5.3.4"
+    "vite": "^5.4.8"
   }
 }

@@ -41,15 +41,13 @@ pre-commit:
   parallel: true
   commands:
     project_checks: &checks
-      glob: "*.{js,mjs,cjs}"
-      exclude:
-        - "examples/**/*"
-        - "package-lock.json"
+      glob: "*.{json,js,jsx,mjs,cjs}"
+      exclude: "(^|/)package-lock\.json$"
       run: |
         npm install
         npm run --if-present prettier:fix -- {staged_files}
         npm run --if-present lint:fix -- {staged_files}
-        git add {staged_files}
+      stage_fixed: true
     examples_react_checks:
       <<: *checks
       root: examples/react
