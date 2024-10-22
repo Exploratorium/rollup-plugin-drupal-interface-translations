@@ -1,4 +1,9 @@
-function getGetTextTemplate({ msgId, msgIdPlural, msgCtxt, references }) {
+function portableObjectTemplateIteratee({
+  msgId,
+  msgIdPlural,
+  msgCtxt,
+  references,
+}) {
   const template = [];
   if (Object.keys(references).length > 0) {
     const iteratee = ({ relativePath, line, column }) =>
@@ -21,13 +26,29 @@ function getGetTextTemplate({ msgId, msgIdPlural, msgCtxt, references }) {
   return template.join('\n');
 }
 
-function potFileOutput(content) {
+function javascriptSourceIteratee({ msgIdPlural, msgId }) {
+  if (msgId && msgIdPlural) {
+    return `Drupal.formatPlural(0, ${JSON.stringify(msgId)}, ${JSON.stringify(msgIdPlural)});`;
+  }
+  if (msgId) {
+    return `Drupal.t(${JSON.stringify(msgId)});`;
+  }
+  return null;
+}
+
+function contentStringFormatter(content) {
   const contentString = content.join('\n\n');
 
   return contentString + '\n';
 }
 
 export function generatePotFile(msgValues) {
-  const msgsAsString = msgValues.map(getGetTextTemplate);
-  return potFileOutput(msgsAsString);
+  const msgsAsString = msgValues.map(portableObjectTemplateIteratee);
+  return contentStringFormatter(msgsAsString);
+}
+
+export function generateTranslationStringFile(msgValues) {
+  const msgsAsString = msgValues.map(javascriptSourceIteratee);
+  const calls = msgsAsString.filter(x => x !== null).join('');
+  return `{function __DRUPAL_INTERFACE_TRANSLATIONS() {${calls}}}`
 }

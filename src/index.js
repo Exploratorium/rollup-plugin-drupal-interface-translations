@@ -6,7 +6,10 @@ import { walk } from 'estree-walker';
 import { SourceMapConsumer } from 'source-map';
 
 import MessagesBuilder from './messagesBuilder.js';
-import { generatePotFile } from './portable-object-template-utils.js';
+import {
+  generatePotFile,
+  generateTranslationStringFile,
+} from './portable-object-template-utils.js';
 
 // eslint-disable-next-line no-undef
 const CURRENT_WORKING_DIRECTORY = process.cwd();
@@ -60,8 +63,15 @@ const drupalInterfaceTranslations = (
 
       return UNCHANGED;
     },
-    async generateBundle() {
+    async generateBundle(options, bundle) {
       const msgValues = msgs.build();
+
+      for (const [__fileName, asset] of Object.entries(bundle)) {
+        if (asset.isEntry) {
+          asset.code += generateTranslationStringFile(msgValues);
+        }
+      }
+
       const msgPromises = msgValues.map(async (msg) => {
         const refPromises = Object.values(msg.references).map(async (ref) => {
           const source = sources[ref.path];

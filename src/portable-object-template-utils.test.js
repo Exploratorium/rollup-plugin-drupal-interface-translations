@@ -1,4 +1,7 @@
-import { generatePotFile } from './portable-object-template-utils.js';
+import {
+  generatePotFile,
+  generateTranslationStringFile,
+} from './portable-object-template-utils.js';
 
 describe('portable object template (POT) file utils', () => {
   const reference = { relativePath: 'test.js', line: 42, column: 4 };
@@ -26,6 +29,7 @@ describe('portable object template (POT) file utils', () => {
     ];
 
     const content = generatePotFile(msgValues);
+    const sourceLike = generateTranslationStringFile(msgValues);
 
     testHasFileReference(content);
     testHasContext(content);
@@ -34,6 +38,9 @@ describe('portable object template (POT) file utils', () => {
     });
     test("doesn't have a 'msgid_plural' line", () => {
       expect(content).not.toMatch(/\nmsgid_plural/);
+    });
+    test('has a Drupal.t call.', () => {
+      expect(sourceLike).toMatch(/\bDrupal.t\("Hello world.".*?\)/);
     });
   });
 
@@ -50,6 +57,7 @@ describe('portable object template (POT) file utils', () => {
     ];
 
     const content = generatePotFile(msgValues);
+    const sourceLike = generateTranslationStringFile(msgValues);
 
     testHasFileReference(content);
     testHasContext(content);
@@ -58,6 +66,11 @@ describe('portable object template (POT) file utils', () => {
     });
     test("has a 'msgid_plural' line", () => {
       expect(content).toMatch(/\nmsgid_plural "Hello y'all."\n/);
+    });
+    test('has a Drupal.formatPlural call.', () => {
+      expect(sourceLike).toMatch(
+        /\bDrupal.formatPlural\(\w+,\s*"Hello you.",\s*"Hello y'all.".*?\)/,
+      );
     });
   });
 });
