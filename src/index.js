@@ -66,10 +66,8 @@ const drupalInterfaceTranslations = (
     async generateBundle(options, bundle) {
       const msgValues = msgs.build();
 
-      for (const [__fileName, asset] of Object.entries(bundle)) {
-        if (asset.isEntry) {
-          asset.code += generateTranslationStringFile(msgValues);
-        }
+      for (const asset of Object.values(bundle).filter((v) => v.isEntry)) {
+        asset.code += generateTranslationStringFile(msgValues);
       }
 
       const msgPromises = msgValues.map(async (msg) => {
