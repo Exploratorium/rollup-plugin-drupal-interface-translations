@@ -49,6 +49,6 @@ export function generatePotFile(msgValues) {
 
 export function generateTranslationStringFile(msgValues) {
   const msgsAsString = msgValues.map(javascriptSourceIteratee);
-  const calls = msgsAsString.filter(x => x !== null).join('');
-  return `{function __DRUPAL_INTERFACE_TRANSLATIONS() {${calls}}}`
+  const calls = msgsAsString.filter((x) => x !== null).join('');
+  return `{function __DRUPAL_INTERFACE_TRANSLATIONS() {${calls}}}`;
 }
