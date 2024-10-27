@@ -9,8 +9,9 @@ describe('examples', () => {
       exec(`npm run build`, (error) => {
         if (error) {
           reject(error);
+        } else {
+          resolve();
         }
-        resolve();
       });
     });
 
