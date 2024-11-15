@@ -42,7 +42,7 @@ pre-commit:
   commands:
     project_checks: &checks
       glob: "*.{json,js,jsx,mjs,cjs}"
-      exclude: "(^|/)package-lock\.json$"
+      exclude: '(^|/)package-lock\.json$'
       run: |
         npm install
         npm run --if-present prettier:fix -- {staged_files}
