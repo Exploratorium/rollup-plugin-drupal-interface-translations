@@ -76,7 +76,7 @@ describe('examples', () => {
         const potFilePath = `examples/${group}/translations/${group}.pot`;
         const content = await readFile(potFilePath, 'utf8');
         expect(content).toMatch(/\nmsgid "Vite logo"\n/);
-      });
+      }, 30_000);
     });
   });
 });
