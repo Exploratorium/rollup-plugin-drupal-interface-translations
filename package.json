@@ -37,7 +37,7 @@
     "drupal"
   ],
   "private": false,
-  "version": "1.0.39",
+  "version": "1.1.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
@@ -60,17 +60,17 @@
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/pluginutils": "^5.1.4",
-    "eslint": "^9.18.0",
+    "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "estree-walker": "^3.0.3",
-    "globals": "^15.14.0",
+    "globals": "^15.15.0",
     "jest": "^29.7.0",
     "lefthook": "^1.10.10",
-    "prettier": "^3.4.2",
-    "rollup": "^4.32.0"
+    "prettier": "^3.5.1",
+    "rollup": "^4.34.7"
   }
 }
