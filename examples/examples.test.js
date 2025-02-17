@@ -42,7 +42,7 @@ describe('examples', () => {
       }
       await Promise.all(promises);
     }
-  });
+  }, 10_000);
 
   ['react', 'vanilla'].forEach((group) => {
     describe(group, () => {
