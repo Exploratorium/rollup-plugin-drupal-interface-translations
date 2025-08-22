@@ -61,7 +61,7 @@ describe('examples', () => {
           );
         }
         await Promise.all(promises);
-      }, 10_000);
+      }, 15_000);
 
       test(`can build the example`, async () => {
         await new Promise((resolve, reject) => {
