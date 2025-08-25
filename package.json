@@ -60,7 +60,7 @@
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/pluginutils": "^5.1.4",
-    "eslint": "^9.26.0",
+    "eslint": "^9.34.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-prettier": "^5.5.4",
