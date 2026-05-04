@@ -59,7 +59,7 @@
     "@jest/globals": "^30.2.0",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-node-resolve": "^16.0.1",
-    "@rollup/pluginutils": "^5.1.4",
+    "@rollup/pluginutils": "^5.3.0",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jest": "^29.0.1",
