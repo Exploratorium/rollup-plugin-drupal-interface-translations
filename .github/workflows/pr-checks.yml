@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code.
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Setup Node.js.
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '22.x'
       - name: Install dependencies.
@@ -34,11 +34,11 @@ jobs:
 #    runs-on: ubuntu-latest
 #    steps:
 #      - name: Checkout code.
-#        uses: actions/checkout@v4
+#        uses: actions/checkout@v7
 #      - name: Setup Node.js.
-#        uses: actions/setup-node@v4
+#        uses: actions/setup-node@v6
 #        with:
-#          node-version: '20.x'
+#          node-version: '22.x'
 #      - name: Extract version from package.json
 #        uses: sergeysova/jq-action@v2
 #        id: name
